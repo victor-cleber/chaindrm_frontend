@@ -18,6 +18,7 @@ from django.urls import path, include
 
 
 urlpatterns = [
-    path('', include('chaindrm.urls')),
+    
+    path('chaindrm/', include('chaindrm.urls')),
     path('admin/', admin.site.urls),
 ]

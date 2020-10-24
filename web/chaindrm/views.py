@@ -11,5 +11,5 @@ def customer(request):
 def distributor(request):
     return render(request, 'distributor.html')
 
-def chaincode(request):
-    return render(request, 'chaincode.html')
+def blockchain(request):
+    return render(request, 'blockchain.html')
