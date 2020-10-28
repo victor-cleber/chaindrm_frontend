@@ -2,21 +2,56 @@
 {% load bootstrap %}
 
 {% block style %}
-<style>
-    body{
-        background-color: rgb(234 203 154);
-    }
-    .card {
-        box-shadow: 5px 10px 10px 10px;
-    }
-    .card-text {
-        font-size: 20px;
-    }
-</style>
+
+
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1 class='text-center'>Customer</h1>
-</div>
+
+<main role="main" class="container">
+    <div class="row">
+      <div class="col-md-12 blog-main">
+        <h3 class="pb-3 mb-4 font-italic border-bottom">         
+        </h3>
+        <div class="blog-post">
+          <h3>My Contract</h3>
+          <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
+          <nav class="blog-pagination">
+            <a class="btn btn-outline-primary" href="#">Generate</a>
+            <a class="btn btn-outline-secondary disabled" href="#">Details</a>
+          </nav>
+          <hr>
+          <div class="card-body">
+            <h4>Files List</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Hash id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Date created</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for file in files %}
+                    <tr>
+                        <td>{{ file.hash_id }}</td>
+                        <td>{{ file.file_name}}</td>
+                        <td>{{ file.date_created }}</td>
+                        <td><a type="button" class="btn btn-warning" href="/file-donwload/{{ file.id }}">Download</a>
+                            <a type="button" class="btn btn-danger" href="/file-delete/{{ file.id }}">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+         
+
+      </div><!-- /.blog-main -->
+
+
+    </div><!-- /.row -->
+
+  </main>
 {% endblock %}

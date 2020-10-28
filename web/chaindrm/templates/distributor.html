@@ -2,21 +2,36 @@
 {% load bootstrap %}
 
 {% block style %}
-<style>
-    body{
-        background-color: rgb(200 203 154);
-    }
-    .card {
-        box-shadow: 5px 10px 10px 10px;
-    }
-    .card-text {
-        font-size: 20px;
-    }
-</style>
+
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1 class='text-center'>Distributor</h1>
+<div class="card-body">
+    <h4>Files List</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Hash id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Date created</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for file in files %}
+            <tr>
+                <td>{{ file.hash_id }}</td>
+                <td>{{ file.file_name}}</td>
+                <td>{{ file.date_created }}</td>
+                <td><a type="button" class="btn btn-warning" href="/file-donwload/{{ file.id }}">Download</a>
+                    <a type="button" class="btn btn-danger" href="/file-delete/{{ file.id }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a type="button" class="btn btn-success" href="#">New File</a>
 </div>
+
+
 {% endblock %}
